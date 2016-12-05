@@ -1,0 +1,34 @@
+<head>
+  <link href="css/main.css" rel="stylesheet" type="text/css"/>
+  <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body class="landing-page">
+  <div ng-controller="appController">
+  <div id="loading-fade" ng-if="loading">LOADING...</div>
+    <nav-menu></nav-menu>
+    <section class="container">
+      <a ui-sref="home">home</a>
+      <ui-view></ui-view>
+    </section>
+  </div>
+
+  <script type="text/javascript" src="vendor.js"></script>
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery&#45;3.1.0.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+  <script type="text/javascript">
+    System.config({
+      packages: {
+        js: {
+          format: 'register',
+          defaultExtension: 'js',
+        },
+      },
+      meta: {
+        'js/*': { format: 'cjs' }
+      },
+    });
+
+    System.import('index.js').then(null, console.error.bind(console));
+  </script>
+</body>

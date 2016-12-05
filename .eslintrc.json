@@ -1,0 +1,17 @@
+{
+  "extends" : "airbnb",
+  "globals" : {
+    "document": false,
+    "angular": false,
+    "loadTemplate": false
+  },
+  "rules" : {
+    "no-confusing-arrow" : 0,
+    "no-use-before-define" : 0,
+    "no-param-reassign" : 0,
+    "import/no-unresolved": 0,
+    "import/extensions": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-restricted-syntax": 0
+  }
+}
