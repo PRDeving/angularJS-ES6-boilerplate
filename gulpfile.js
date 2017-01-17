@@ -25,7 +25,7 @@ console.log('Applies configuration:', env);
 const SRC_PATH = 'src';
 const MOCK_PATH = 'mock';
 const ASSETS_PATH = `${SRC_PATH}/assets`;
-const STYLES_PATH = `${SRC_PATH}/styles/main.sass`;
+const STYLES_PATH = `${SRC_PATH}/styles/main.scss`;
 const DEPS_PATH = [
   // ES6
   'node_modules/systemjs/dist/system.js',
@@ -85,7 +85,7 @@ gulp.task('assets', () => {
       .pipe(gulp.dest(`${DIST_PATH}/assets`));
 });
 
-gulp.task('build', ['vendors', 'js', 'assets', 'styles'], () => {
+gulp.task('html', () => {
   gulp.src(`${SRC_PATH}/index.html`)
       .pipe(gulp.dest(DIST_PATH));
   gulp.src([`${SRC_PATH}/**/*.html`, `!${SRC_PATH}/index.html`])
@@ -93,10 +93,19 @@ gulp.task('build', ['vendors', 'js', 'assets', 'styles'], () => {
       .pipe(gulp.dest(DIST_PATH));
 });
 
+gulp.task('build', ['vendors', 'js', 'assets', 'styles', 'html']);
+
 gulp.task('serve', () => {
   gulp.src(DIST_PATH)
       .pipe(webserver({
         livereload: true,
         open: true
       }));
+});
+
+gulp.task('watch', ['build'], () => {
+  gulp.watch('**/*.js', ['js']);
+  gulp.watch('**/*.scss', ['styles']);
+  gulp.watch('**/*.html', ['html']);
+  gulp.watch(['**/*.png', '**/*.jpg', '**/*.gif'], ['assets']);
 });

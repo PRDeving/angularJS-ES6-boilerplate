@@ -1,10 +1,6 @@
 const mainController = (
-    // $scope,
-    // UserModel,
 ) => {
-  // 'ngInject';
-
-  // UserModel.checkSession();
+  'ngInject';
 };
 
 export default mainController;

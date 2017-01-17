@@ -1,10 +1,7 @@
-// import homePageController from './home.page.controller.js';
-
 import homeController from './home.controller.js';
 import homeTemplate from './home.template.html';
 
 const homePage = angular.module('home.page', [])
-  // .controller('home.controller', homePageController)
   .config(($stateProvider) => {
     'ngInject';
 
